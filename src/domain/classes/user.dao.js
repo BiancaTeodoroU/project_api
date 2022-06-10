@@ -1,9 +1,9 @@
-const {Dal} = require("./dal")
+const {Dal} = require("./dal.mongo")
 
 module.exports.UserDao = class UserDao extends Dal {
     constructor() {
         super()
-        this.storage = new Map()
+        this.colletionName = 'user'
     }
 }
 

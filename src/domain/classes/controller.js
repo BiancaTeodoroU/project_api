@@ -10,32 +10,33 @@ module.exports.Controller = class Controller {
         this.update = this.update.bind(this)
     }
 
-    create(req, res, next) {
+    async create(req, res, next) {
         const dados = req.body
-        this.dao.create(dados.data, dados.id)
-        res.status(201).json({ ...dados.data, id: dados.id})
+        const result = await this.dao.create(dados.data) 
+        res.status(201).json(result)
     }
 
-    update(req, res, next) {
+    async update(req, res, next) {
         const dados = req.body
-        this.dao.update(dado.data, dados.id)
-        res.status(200).json({ ...dados.data, id: dados.id})
+        await this.dao.update(dado.data, dados.id)
+        const result = await this.dao.get(Number(dados.id))
+        res.status(200).json(result)
     }
 
-    delete(req, res, next) {
-        const { id } = req.body
-        this.dao.delete(id)
+    async delete(req, res, next) {
+        const { id } = req.params
+        await this.dao.delete(Number(id))
         res.status(200).send()
     }
 
-    list(req, res, next) {
-        const data = this.dao.list()
+    async list(req, res, next) {
+        const data = await this.dao.list()
         res.status(200).json(data)
     }
 
-    get(req, res, next) {
-        const { id } = req.body
-        const data = this.dao.get(id)
-        res.status(201).json(data)
+    async get(req, res, next) {
+        const { id } = req.params
+        const data = await this.dao.get(Number(id))
+        res.status(200).json(data)
     }
 }

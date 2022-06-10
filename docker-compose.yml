@@ -7,3 +7,14 @@ services:
             - "27017:27017"
         volumes:
             - ./data:/data/db
+    api: 
+        image: node
+        ports: 
+            - "8080:8080"
+        volumes:
+            - ./:/usr/src/app
+        depends_on: 
+            - mongo
+        command: bash -c "cd /usr/src/app && npm i && node index.js"
+        environment:
+            - MONGO_DB_URI=mongodb://mongo:27017/work
