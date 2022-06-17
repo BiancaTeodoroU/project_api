@@ -2,11 +2,14 @@ version: '3'
 
 services:
     mongo:
+        hostname: mongo
+        container_name: mongo
         image: mongo
         ports:
-            - "27017:27017"
-        volumes:
-            - ./data:/data/db
+            - 27017:27017
+        restart: always
+       # volumes:
+           # - ./data:/data/db
     api: 
         image: node
         ports: 

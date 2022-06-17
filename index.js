@@ -1,6 +1,7 @@
 const express = require ("express")
 const bodyParser = require ("body-parser")
-const rotas = require ("./src/domain/imports/dinamicimport")
+const rotas = require ("./src/domain/imports/dinamicimport") 
+// const rotas = require('./src/domain/imports/routes')
 
 let app = express ()
 app.use(bodyParser.urlencoded({ extended: false }))

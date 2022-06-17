@@ -12,31 +12,33 @@ module.exports.Controller = class Controller {
 
     async create(req, res, next) {
         const dados = req.body
-        const result = await this.dao.create(dados.data) 
+        const result = await this.dao.create(dados) 
         res.status(201).json(result)
     }
 
     async update(req, res, next) {
         const dados = req.body
-        await this.dao.update(dado.data, dados.id)
-        const result = await this.dao.get(Number(dados.id))
+        const { id } = req.params
+        await this.dao.update(dados, id)
+        const result = await this.dao.get(dados.id)
         res.status(200).json(result)
     }
 
     async delete(req, res, next) {
         const { id } = req.params
-        await this.dao.delete(Number(id))
+        await this.dao.delete(id)
         res.status(200).send()
     }
 
     async list(req, res, next) {
         const data = await this.dao.list()
+        console.log(data)
         res.status(200).json(data)
     }
 
     async get(req, res, next) {
         const { id } = req.params
-        const data = await this.dao.get(Number(id))
+        const data = await this.dao.get(id)
         res.status(200).json(data)
     }
 }
