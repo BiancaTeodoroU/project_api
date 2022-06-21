@@ -1,0 +1,120 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.container {
+    width: 90%;
+    height: 92vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.form-image img {
+    width: 38.2rem;
+    height: 35rem;
+    object-fit: cover;
+}
+
+.ajust-image_lol {
+    width: 12em;
+    object-fit: cover;
+    margin-top: 10px;
+    margin: 15px;
+}  
+
+.container-img {
+    display: flex;
+}
+
+select {
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 15px;
+    padding-right: 20px;
+    text-align: center;
+    padding: 7px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-left: 28px;
+    margin-top: 35px;
+    text-decoration: underline;
+}
+
+.input-container {
+    display: block;
+    width: 100%;
+
+    font-size: 16px;
+    padding: 5px;
+}
+
+input {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.212);
+    margin: 0 10px 10px;
+    margin-left: 66px;
+}
+
+.modified {
+    margin: 20px;
+    margin-left: 70px;
+}
+
+.title-modified {
+    margin-left: 12em;
+}
+
+.modified-2 {
+    margin-left: 4em;
+}
+
+.modified-3 {
+    margin-left: 11em;
+}
+
+.modified-4 {
+    margin-left: 12.8em;
+}
+
+.options-container {
+    margin-left: 10px;
+}
+
+.ajust-password {
+    margin: 20px;
+    color: #ff4040;
+}
+
+.ajust-enviar {
+    background: #e61919;
+    margin: 15px;
+    padding: 15px 100px;
+    margin-left: 15.5em;
+    border: none;
+    color: white;
+}

@@ -55,10 +55,13 @@ module.exports = [ (req, res, next) => {
         return true;
     }
     
-    if (typeof body.cpf !== validation || "number" || body.number.length < 11) {
-        erros.cpf = ["Digite seu CPF!"];
-    } ;
-    
+    if (!body.cpf) {
+        erros.cpf = ["CPF é obrigatório!"];
+    } else {
+        if (typeof body.cpf !== "number" || body.cpf.length < 11 || !TestaCPF(String(body.cpf)) ) {
+            erros.cpf = ["CPF inválido!"];
+        }
+    };
 
 
     if (!body.cep) {
