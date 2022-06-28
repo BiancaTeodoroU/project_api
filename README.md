@@ -20,3 +20,7 @@
 ### Para ver a API funcionando 
 
     fg
+    
+#### Fomulario para testes na API
+
+![enter image description here](https://github.com/BiancaTeodoroU/project_api/blob/main/src/domain/view/images/image-form.png?raw=true)
