@@ -12,7 +12,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
 }
 
 .container {
@@ -89,7 +88,19 @@ input {
     margin-left: 12em;
 }
 
-.modified-2 {
+.sobrenome {
+    margin-left: 4em;
+}
+
+.telefone {
+    margin-left: 4em;
+}
+
+.endereco {
+    margin-left: 4em;
+}
+
+.cidade {
     margin-left: 4em;
 }
 
@@ -113,8 +124,74 @@ input {
 .ajust-enviar {
     background: #e61919;
     margin: 15px;
-    padding: 15px 100px;
+    padding: 20px 100px;
     margin-left: 15.5em;
     border: none;
     color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.image-lol {
+    width: 100px;
+    height: 150px;
+}
+
+.portfolio {
+    margin-top: 300px;
+    padding: 0 100px;
+    margin-bottom: 100px;
+    height: 800px;
+    text-align: center;
+}
+
+.portfolio-container {
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 100px;
+    margin: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.cadastro-edit {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 12px;
+    border: none;
+    background: violet;
+    cursor: pointer;
+}
+
+.cadastro-delete {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background: crimson;
+    color: white;
+    cursor: pointer;
+}
+
+.img-container img {
+    object-fit: cover;
+    width: 300px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-right: 150px;
+}
+
+.portfolio .portfolio-container .portfolio-card .language-container ul li {
+    border: 1px solid cornflowerblue;
+    border-radius: 4px;
+    padding: 3px 15px;
+}
+
+p {
+    margin: 20px;
 }

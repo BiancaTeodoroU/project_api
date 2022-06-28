@@ -10,60 +10,56 @@
 <body>
     <div class="container">
         <div class="form-image">
-            <img src="./images/wallpaper.jpg" alt="">
+            <img class='image-lol'src="./images/wallpaper.jpg" alt="">
         </div>
         <div class="form-container">
             <div class="container-img">
                 <img  class="ajust-image_lol" src="./images/logo.png" alt="img"/>
                 <h3>Formúlario de Contato</h3>
             </div>
-            <form>
+            <form name="form-controll">
                 <span class="modified">Nome</span>
                 <span class="title-modified">Sobrenome</span>
                 <div class="input-container">
-                    <input  class="modified-5" type="text" placeholder="Digite seu nome">
-                    <input class="modified-2" type="text" placeholder="Digite seu sobrenome">
+                    <input  class="nome" type="text" name="nome" placeholder="Digite seu nome">
+                    <input class="sobrenome" type="text" name="sobrenome" placeholder="Digite seu sobrenome">
                 </div>
                 <span class="modified">Idade</span>
                 <span class="title-modified">Telefone</span>
                 <div class="input-container">
-                    <input class="modified-5" type="idade" placeholder="Digite sua idade">
-                    <input class="modified-2" type="telefone" placeholder="Digite seu telefone">
+                    <input class="idade" type="idade" name="idade" placeholder="Digite sua idade">
+                    <input class="telefone" type="telefone" name="telefone" placeholder="Digite seu telefone">
                 </div>
                 <span class="modified">Cep</span>
                 <span class="modified-4">Endereço</span>
                 <div class="input-container">
-                    <input class="modified-5" type="cep" placeholder="Digite seu CEP">
-                    <input class="modified-2" type="endereco" placeholder="Digite seu Endereço">
+                    <input class="CEP" type="cep" name="cep" placeholder="Digite seu CEP">
+                    <input class="endereco" type="endereco" name="endereco" placeholder="Digite seu Endereço">
                 </div>
                 <span class="modified">Número</span>
                 <span class="modified-3">Cidade</span>
                 <div class="input-container">
-                    <input class="modified-5" type="numero" placeholder="Digite seu Número">
-                    <input class="modified-2" type="cidade" placeholder="Digite sua cidade">
+                    <input class="numero" type="numero" name="numero" placeholder="Digite seu Número">
+                    <input class="cidade" type="cidade" name="cidade" placeholder="Digite sua cidade">
                 </div>
                 <span class="modified">CPF</span>
                 <div class="input-container">
-                    <input type="cpf" placeholder="Digite seu CPF">
-                    <select name="opcoes" id="select">
+                    <input class="cpf" type="cpf" name="cpf" placeholder="Digite seu CPF">
+                    <select class="uf" name="uf" id="select">
                         <option value="Opções">UF</option>
-                        <option value="1">SP</option>
-                        <option value="2">RJ</option>
-                        <option value="3">MT</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MT">MT</option>
                     </select>
                 </div>
-                <div class="options-container">
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="remenber" id="remenber">
-                        <label for="remenber">Lembre-me</label>
-                        <a class="ajust-password" href="google.com">Resetar Senha</a>
-                    </div>
-                </div>
-                
                 <input class="ajust-enviar" type="submit" value="Enviar">
             </form>
         </div>
-
+    
     <script src="script.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+        const btnSubmit = this.getElementsByClassName('ajust-enviar')[0]
+        btnSubmit.addEventListener('click', SubmeterDados)
+    })</script>
 </body>
 </html>
