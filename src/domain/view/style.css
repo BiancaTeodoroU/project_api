@@ -132,6 +132,12 @@ input {
     cursor: pointer;
 }
 
+.background {
+    background-image: url(https://i.pinimg.com/736x/58/9c/18/589c18531c692fe1a96d2d05cbdc7868.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .image-lol {
     width: 100px;
     height: 150px;
@@ -151,6 +157,7 @@ input {
     margin: 50px;
     margin-bottom: 50px;
     padding: 20px;
+    background-color: white;
 }
 
 .cadastro-edit {
@@ -194,4 +201,15 @@ li {
 
 p {
     margin: 20px;
+}
+
+.cadastro-visualizar {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background: coral;
+    color: white;
+    cursor: pointer;
 }

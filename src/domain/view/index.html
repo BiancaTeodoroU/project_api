@@ -57,7 +57,22 @@
         </div>
     
     <script src="script.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", function() {
+    <script>document.addEventListener("DOMContentLoaded", async function() {
+        const params = new URLSearchParams(window.location.search)
+        let userId = null 
+            if(params.has('id')) userId = params.get('id')
+            if(userId){ 
+            const user = await getUser(userId).then(async function(result){
+            if(result.status !== 200){
+                console.log( await result.text())
+                return 
+            }   
+            const resUser = await result.json()
+            carregarDados(resUser)
+        })
+        .catch(function(error){
+            console.log(error)
+        })}
         const btnSubmit = this.getElementsByClassName('ajust-enviar')[0]
         btnSubmit.addEventListener('click', SubmeterDados)
     })</script>

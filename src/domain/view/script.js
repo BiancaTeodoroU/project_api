@@ -38,10 +38,11 @@ async function CreateUser(dados) {
     return request
 }
 
-
 async function SubmeterDados(event) {
     event.preventDefault()
-
+    const params = new URLSearchParams(window.location.search)
+    let userId = null 
+    if(params.has('id')) userId = params.get('id')
 
     const dados = {
         nome: document.forms['form-controll']['nome'].value,
@@ -56,7 +57,24 @@ async function SubmeterDados(event) {
         uf: document.forms['form-controll']['uf'].value,
     }
 
-    CreateUser(dados).then(async res => {
+    if(userId){
+        await updateUser(dados, userId).then(async res => {
+            if (res.status !== 200 ) {
+                const resultado = await res.json()
+                console.log(resultado)
+                return
+            }
+            console.log('Sucesso')
+            console.log(res)
+            document.location.href=`http://127.0.0.1:5501/src/domain/view/index.html`
+            }).catch ( error => {
+            console.error(error);
+            })
+    }
+    
+    else {
+
+    await CreateUser(dados).then(async res => {
         if (res.status !== 201 ) {
             const resultado = await res.json()
             console.log(resultado)
@@ -69,6 +87,7 @@ async function SubmeterDados(event) {
         console.error(error);
         })
     }
+}
 
 function createCard(user) {
     const div = document.createElement('div')
@@ -120,6 +139,12 @@ function createCard(user) {
     btnDelete.appendChild(txtDelete)
     btnDelete.addEventListener('click', async () => {await DeleteUser(user);document.location.reload()})
 
+    const btnVisualizar = document.createElement('button')
+    btnVisualizar.setAttribute('class', 'cadastro-visualizar cadastro-visualizar-txt cadastro-visualizar-button__position')
+    div.appendChild(btnVisualizar)
+    const txtVisualizar = document.createTextNode('Visualizar')
+    btnVisualizar.appendChild(txtVisualizar)
+    btnVisualizar.addEventListener('click', function(){document.location.href=`http://127.0.0.1:5501/src/domain/view/index.html?id=${user._id}`} )
 
     const cardTitleDescription = document.createElement('p')
     cardTitleDescription.innerHTML = user.nome
@@ -133,8 +158,19 @@ function createCard(user) {
     handler.appendChild(div)
 }
 
-async function updateUser() {
+async function updateUser(user, id) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
+    var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders,
+    body: JSON.stringify(user),
+    redirect: 'follow'
+    };
+
+    const request = await fetch(`http://localhost:8080/user/${id}`, requestOptions)
+    return request 
 }
 
 async function DeleteUser(user) {
@@ -148,12 +184,27 @@ async function DeleteUser(user) {
     return request;
 }
 
-async function getUser() {
+async function getUser(id) {
+
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
 
-    const request = await fetch("http://localhost:8080/user/123", requestOptions);
+    const request = await fetch(`http://localhost:8080/user/${id}`, requestOptions);
     return request;
+}
+
+async function carregarDados(user) {
+
+    document.forms['form-controll']['nome'].value = user.nome
+    document.forms['form-controll']['sobrenome'].value = user.sobrenome
+    document.forms['form-controll']['idade'].value = user.idade
+    document.forms['form-controll']['telefone'].value = user.telefone
+    document.forms['form-controll']['cep'].value = user.cep
+    document.forms['form-controll']['endereco'].value = user.endereco
+    document.forms['form-controll']['numero'].value = user.numero
+    document.forms['form-controll']['cidade'].value = user.cidade
+    document.forms['form-controll']['cpf'].value = user.cpf
+    document.forms['form-controll']['uf'].value = user.uf
 }
