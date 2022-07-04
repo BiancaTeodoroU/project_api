@@ -12,6 +12,9 @@ app.use((req,res,next) => {
     next()
 })
 
+app.use('/static', express.static('./src/domain/view'))
+
+
 app.use(rotas)
 
 app.listen(8080, () => console.log("http://localhost:8080"))

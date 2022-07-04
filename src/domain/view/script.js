@@ -130,7 +130,7 @@ function createCard(user) {
     div.appendChild(btnEdit)
     const txtEdit = document.createTextNode('Editar')
     btnEdit.appendChild(txtEdit)
-    btnEdit.addEventListener('click', function(){document.location.href=`http://127.0.0.1:5501/src/domain/view/index.html?id=${user._id}`} )
+    btnEdit.addEventListener('click', function(){document.location.href=`index.html?id=${user._id}`} )
 
     const btnDelete = document.createElement('button')
     btnDelete.setAttribute('class', 'cadastro-delete cadastro-delete-txt cadastro-delete-button__position')
@@ -144,7 +144,7 @@ function createCard(user) {
     div.appendChild(btnVisualizar)
     const txtVisualizar = document.createTextNode('Visualizar')
     btnVisualizar.appendChild(txtVisualizar)
-    btnVisualizar.addEventListener('click', function(){document.location.href=`http://127.0.0.1:5501/src/domain/view/index.html?id=${user._id}`} )
+    btnVisualizar.addEventListener('click', function(){document.location.href=`userCard.html?id=${user._id}`} )
 
     const cardTitleDescription = document.createElement('p')
     cardTitleDescription.innerHTML = user.nome
@@ -207,4 +207,24 @@ async function carregarDados(user) {
     document.forms['form-controll']['cidade'].value = user.cidade
     document.forms['form-controll']['cpf'].value = user.cpf
     document.forms['form-controll']['uf'].value = user.uf
+}
+
+
+async function preencherDados(user){
+
+    document.getElementById('nome').innerHTML = user.nome
+    document.getElementById('sobrenome').innerHTML = user.sobrenome
+    const emote = document.createElement('i')
+    emote.setAttribute('data-feather', "map-pin")
+    const textCidade = document.createTextNode(user.cidade)
+    const cidade = document.getElementById('cidade')
+    cidade.appendChild(emote)
+    cidade.appendChild(textCidade)
+    document.getElementById('idade').innerHTML = user.idade
+    document.getElementById('cep').innerHTML = user.cep
+    document.getElementById('telefone').innerHTML = user.telefone
+    document.getElementById('endereco').innerHTML = user.endereco
+    document.getElementById('cpf').innerHTML = user.cpf
+    document.getElementById('numero').innerHTML = user.numero
+    document.getElementById('uf').innerHTML = user.uf
 }
