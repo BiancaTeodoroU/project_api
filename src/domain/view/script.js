@@ -4,7 +4,7 @@ async function listUsers() {
         redirect: "follow",
     };
 
-    return fetch("http://localhost:8080/user", requestOptions)
+    return fetch("user/", requestOptions)
     .then((response) => {
         if(response.status == 200) { 
             return response.json()
@@ -34,7 +34,7 @@ async function CreateUser(dados) {
     redirect: "follow",
     };
 
-    const request = await fetch("http://localhost:8080/user", requestOptions)
+    const request = await fetch("user/", requestOptions)
     return request
 }
 
@@ -66,7 +66,7 @@ async function SubmeterDados(event) {
             }
             console.log('Sucesso')
             console.log(res)
-            document.location.href=`http://127.0.0.1:5501/src/domain/view/index.html`
+            document.location.href=`static/index.html`
             }).catch ( error => {
             console.error(error);
             })
@@ -169,7 +169,7 @@ async function updateUser(user, id) {
     redirect: 'follow'
     };
 
-    const request = await fetch(`http://localhost:8080/user/${id}`, requestOptions)
+    const request = await fetch(`user/${id}`, requestOptions)
     return request 
 }
 
@@ -180,7 +180,7 @@ async function DeleteUser(user) {
         redirect: "follow"
     };
 
-    const request = await fetch(`http://localhost:8080/user/${user._id}`, requestOptions);
+    const request = await fetch(`user/${user._id}`, requestOptions);
     return request;
 }
 
@@ -191,7 +191,7 @@ async function getUser(id) {
         redirect: 'follow'
     };
 
-    const request = await fetch(`http://localhost:8080/user/${id}`, requestOptions);
+    const request = await fetch(`user/${id}`, requestOptions);
     return request;
 }
 
