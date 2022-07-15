@@ -76,7 +76,7 @@ async function SubmeterDados(event) {
 
     await CreateUser(dados).then(async res => {
         if (res.status !== 201 ) {
-            const resultado = await res.json()
+            const resultado = await res.text()
             console.log(resultado)
             return
         }
