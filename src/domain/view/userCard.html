@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style2.css" rel="stylesheet" >
+    <link href="style2.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
+
 <body>
     <section id="card" class="card">
         <div class="card-container">
             <a class="ajust-voltar" href="user.html"><i data-feather="arrow-left"></i></a>
             <div class="portfolio-card">
-            <div class="img-container">
-                <div class="line green"></div>
-                <img src="./images/Arataki itto.jpg" alt="Imagem do portfolio" />
+                <div class="img-container">
+                    <div class="line green"></div>
+                    <img src="./images/Arataki itto.jpg" alt="Imagem do portfolio" />
+                </div>
+                <div class="language-container">
+                    <h1 id="nome"></h1>
+                    <ul>
+                        <li id="cidade" class="ajust-li"><i data-feather="map-pin"></i></li>
+                    </ul>
+                </div>
             </div>
-            <div class="language-container">
-                <h1 id="nome"></h1>
-            <ul>
-                <li id="cidade" class="ajust-li"><i data-feather="map-pin"></i></li>
-            </ul>
-            </div>
-        </div>
     </section>
     <section id="card2" class="card2">
         <div class="card-container">
             <div class="portfolio2-card">
-            <div>
-            <div class="language2-container">
-            <ul>
-                <li id="uf"></li>
-                <li id="telefone"></li>
-                <li id="numero"></li>
-                <li id="cpf"></li>
-                <li id="cep"></li>
-                <li id="idade"></li>
-                <li id="sobrenome"></li>
-                <li id="endereco"></li>
-            </ul>
-            </div>
-        </div>
+                <div>
+                    <div class="language2-container">
+                        <ul>
+                            <li id="uf"></li>
+                            <li id="telefone"></li>
+                            <li id="numero"></li>
+                            <li id="cpf"></li>
+                            <li id="cep"></li>
+                            <li id="idade"></li>
+                            <li id="sobrenome"></li>
+                            <li id="endereco"></li>
+                        </ul>
+                    </div>
+                </div>
     </section>
     <script>
         feather.replace()
@@ -50,30 +52,30 @@
 
     <section id="teste" class="portfolio"></section>
     <script src="script.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", async function() {
-        const params = new URLSearchParams(window.location.search)
-        let userId = null 
-            if(params.has('id')) userId = params.get('id')
-            if(userId){ 
-            const user = await getUser(userId).then(async function(result){
-            if(result.status !== 200){
-                console.log( await result.text())
-                return 
-            }   
-            const resUser = await result.json()
-            preencherDados(resUser)
-        })
-            .catch(function(error){
-                console.log(error)
-            })
-        } else {
-            const viewUser = document.createElement('h1')
-            viewUser.appendChild(document.createTextNode('Usúario não localizado'))
+    <script>document.addEventListener("DOMContentLoaded", async function () {
+            const params = new URLSearchParams(window.location.search)
+            let userId = null
+            if (params.has('id')) userId = params.get('id')
+            if (userId) {
+                const user = await getUser(userId).then(async function (result) {
+                    if (result.status !== 200) {
+                        console.log(await result.text())
+                        return
+                    }
+                    const resUser = await result.json()
+                    preencherDados(resUser)
+                })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+            } else {
+                const viewUser = document.createElement('h1')
+                viewUser.appendChild(document.createTextNode('Usúario não localizado'))
 
-            const handler = document.getElementById('portfolio')
-            handler.appendChild(viewUser)
-        }
+                const handler = document.getElementById('portfolio')
+                handler.appendChild(viewUser)
+            }
         })</script>
-        
 </body>
+
 </html>
