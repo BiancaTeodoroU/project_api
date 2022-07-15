@@ -5,6 +5,7 @@ module.exports.Dal = class Dal {
     collectionName = null
 
     constructor() {
+        console.log(process.env.MONGO_DB_URI)
         MongoHelper.setMongoUrl(process.env.MONGO_DB_URI)
     }
 
