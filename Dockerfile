@@ -20,10 +20,10 @@ RUN npm install
 COPY . .
 
 # Criamos variaveis de ambiente necessarias
-ENV MONGO_DB_URI='mongodb+srv://biancateodoro:kiaravidaloka23@clusterprojetoapi.zfymf3e.mongodb.net/?retryWrites=true&w=majority'
-
+#ENV MONGO_DB_URI='mongodb+srv://biancateodoro:kiaravidaloka23@clusterprojetoapi.zfymf3e.mongodb.net/?retryWrites=true&w=majority'
+#ENV PORT=$PORT
 # Expõe a porta para acesso externo
-EXPOSE 8080
+EXPOSE 5000
 
 # Comando para rodar a aplicação
 CMD [ "node", "index.js" ]

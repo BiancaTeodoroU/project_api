@@ -17,4 +17,8 @@ app.use('/static', express.static('./src/domain/view'))
 
 app.use(rotas)
 
-app.listen(8080, () => console.log("http://localhost:8080"))
+app.use('/', (req,res) => {
+    res.send('Olá')
+})
+
+app.listen(process.env.PORT, () => console.log(`http://localhost:${process.env.PORT}`));
